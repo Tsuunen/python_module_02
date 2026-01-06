@@ -1,19 +1,26 @@
 class GardenError(Exception):
+    """Generic Garden Erorr"""
+
     def __init__(self, message: str):
         super().__init__(message)
 
 
 class PlantError(GardenError):
+    """Plant related Garden Erorr"""
+
     def __init__(self):
         super().__init__("The tomato plant is wilting!")
 
 
 class WaterError(GardenError):
+    """Water related Garden Erorr"""
+
     def __init__(self):
         super().__init__("Not enough water in the tank!")
 
 
 def test():
+    """Tet if all custom errors works"""
     print("=== Custom Garden Errors Demo ===\n")
     try:
         print("Testing PlantError...")
@@ -36,7 +43,3 @@ def test():
     except GardenError as e:
         print("Caught a garden error:", e)
     print("\nAll custom error types work correctly!")
-
-
-if (__name__ == "__main__"):
-    test()

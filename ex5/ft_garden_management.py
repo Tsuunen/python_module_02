@@ -1,23 +1,32 @@
 class GardenError(Exception):
+    """Generic Garden Erorr"""
+
     def __init__(self, message: str):
         super().__init__(message)
 
 
 class PlantError(GardenError):
+    """Plant related Garden Erorr"""
+
     def __init__(self, message):
         super().__init__(message)
 
 
 class WaterError(GardenError):
+    """Water related Garden Erorr"""
+
     def __init__(self, message):
         super().__init__(message)
 
 
 class GardenManager:
+    """GardenManager helps with managing multiple plants"""
+
     def __init__(self):
         self.plant_list: list(str) = []
 
     def add_plant(self, plant_name: str):
+        """Add plant to manager"""
         if (plant_name == ""):
             raise GardenError(
                 "Error adding plant: Plant name cannot be empty!")
@@ -25,6 +34,7 @@ class GardenManager:
         print(f"Added {plant_name} successfully")
 
     def water_plants(self):
+        """water all plants from self.plant_list"""
         print("Opening watering system")
         try:
             for i in self.plant_list:
@@ -37,9 +47,11 @@ class GardenManager:
             print("Closing watering system (cleanup)")
 
     def check_water_level(self):
+        """Raise an error to test catching it"""
         raise WaterError("Not enough water in tank")
 
     def check_plant_health(self, plant_name, water_level, sunlight_hours):
+        """Check if plants are healthy"""
         if (plant_name == ""):
             raise GardenError(
                 "Error checking {plant_name}: Plant name cannot be empty!")

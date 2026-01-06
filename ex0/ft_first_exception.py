@@ -1,4 +1,5 @@
 def check_temperature(temp_str: str):
+    """Check if temp_str is correct"""
     try:
         temp: int = int(temp_str)
         if (temp < 0):
@@ -28,6 +29,3 @@ def test_temperature_input():
     check_temperature("-50")
     print()
     print("All tests completed - program didn't crash!")
-
-
-test_temperature_input()

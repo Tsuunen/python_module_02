@@ -1,4 +1,5 @@
 def garden_operations(action: str):
+    """Raise exception based on the action given"""
     dic: dict = dict()
 
     if (action == "value"):
@@ -17,6 +18,7 @@ def garden_operations(action: str):
 
 
 def test_error_types():
+    """Testing all errors from garden_operations"""
     print("=== Garden Error Types Demo ===\n")
 
     try:
