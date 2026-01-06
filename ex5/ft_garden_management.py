@@ -42,7 +42,7 @@ class GardenManager:
                     0 / 0
                 print("watering", i)
         except Exception:
-            print("Error: Cannot water None - invalid plant!")
+            raise WaterError("Error: Cannot water None - invalid plant!")
         finally:
             print("Closing watering system (cleanup)")
 
