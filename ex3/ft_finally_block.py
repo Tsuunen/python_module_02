@@ -6,6 +6,7 @@ def water_plants(plant_list: list):
             if (i is None):
                 0 / 0
             print("watering", i)
+        print("Watering completed successfully!")
     except Exception:
         print("Error: Cannot water None - invalid plant!")
     finally:
@@ -16,6 +17,6 @@ def test_watering_system():
     """Test if the watering system works"""
     print("=== Garden Watering System ===\n")
     water_plants(["tomato", "lettuce", "carrots"])
-    print("Watering completed successfully!\n")
+    print()
     water_plants(["tomato", None, "carrots"])
     print("\nCleanup always happens, even with errors!")
