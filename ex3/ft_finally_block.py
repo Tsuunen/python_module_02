@@ -17,6 +17,9 @@ def test_watering_system():
     """Test if the watering system works"""
     print("=== Garden Watering System ===\n")
     water_plants(["tomato", "lettuce", "carrots"])
-    print()
+    print("\nTesting with error...")
     water_plants(["tomato", None, "carrots"])
     print("\nCleanup always happens, even with errors!")
+
+
+test_watering_system()
