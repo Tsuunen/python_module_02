@@ -27,10 +27,10 @@ class GardenManager:
 
     def add_plant(self, plant_name: str):
         """Add plant to manager"""
-        if (plant_name == ""):
-            raise GardenError(
+        if (plant_name == "" or plant_name is None):
+            raise PlantError(
                 "Error adding plant: Plant name cannot be empty!")
-        self.plant_list.append(plant_name)
+        self.plant_list.append(str(plant_name))
         print(f"Added {plant_name} successfully")
 
     def water_plants(self):
@@ -38,8 +38,6 @@ class GardenManager:
         print("Opening watering system")
         try:
             for i in self.plant_list:
-                if (i is None):
-                    0 / 0
                 print("watering", i)
         except Exception:
             raise WaterError("Error: Cannot water None - invalid plant!")
@@ -53,7 +51,7 @@ class GardenManager:
     def check_plant_health(self, plant_name, water_level, sunlight_hours):
         """Check if plants are healthy"""
         if (plant_name == ""):
-            raise GardenError(
+            raise PlantError(
                 "Error checking {plant_name}: Plant name cannot be empty!")
         elif (water_level < 1):
             raise WaterError(
